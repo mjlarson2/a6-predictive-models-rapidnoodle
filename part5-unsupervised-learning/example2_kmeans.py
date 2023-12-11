@@ -11,7 +11,7 @@ x, y = make_circles()
 
 #sets the value of k and creates kmeans model
 k = 2
-km = KMeans(n_clusters=k).fit(x)
+km = KMeans(n_clusters=k, n_init=10).fit(x)
 
 #returns centroid x, y values in a 2D array
 centroids = km.cluster_centers_

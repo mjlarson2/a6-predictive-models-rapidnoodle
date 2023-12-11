@@ -12,7 +12,7 @@ x_std = StandardScaler().fit_transform(data)
 
 #sets the value of k and creates kmeans model
 k = 2
-km = KMeans(n_clusters=k).fit(x_std)
+km = KMeans(n_clusters=k, n_init=10).fit(x_std)
 
 #returns centroid x, y values in a 2D array
 centroids = km.cluster_centers_
