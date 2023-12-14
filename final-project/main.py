@@ -35,6 +35,9 @@ for index in range(len(x_test)):
     print("Predicted: " + ref[y_pred] + "; Actual: " + ref[actual])
     print("")
 
+print("*************")
+print("Accuracy:", model.score(x_test, y_test))
+
 #Test Custom Data Prediction
 custom_data = [[
     1,1,1,1,1,1,1,1,1,1,
@@ -51,5 +54,3 @@ custom_prediction = model.predict(custom_data.reshape(-1, 57))[0]
 print("Custom Data Prediction:")
 print("No" if not custom_prediction else "Yes")
 
-print("*************")
-print("Accuracy:", model.score(x_test, y_test))
