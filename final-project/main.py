@@ -26,8 +26,6 @@ x_train, x_test, y_train, y_test = train_test_split(x, y)
 model = linear_model.LogisticRegression().fit(x_train, y_train)
 
 #Prints the accuracy and predictions of the model
-print("Accuracy:", model.score(x_test, y_test))
-print("*************")
 print("Testing Results:")
 print("")
 print(y_test)
@@ -39,3 +37,6 @@ for index in range(len(x_test)):
 
     print("Predicted: " + ref[y_pred] + "; Actual: " + ref[actual])
     print("")
+
+print("*************")
+print("Accuracy:", model.score(x_test, y_test))
