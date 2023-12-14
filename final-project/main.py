@@ -37,5 +37,5 @@ for index in range(len(x_test)):
     y_pred = model.predict(x)[0]
     actual = y_test[index][0]
 
-    print("Predicted Spam: " + ref[y_pred] + " Actual Spam: " + ref[actual])
+    print("Predicted: " + ref[y_pred] + "; Actual: " + ref[actual])
     print("")
