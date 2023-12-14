@@ -1,6 +1,3 @@
-import pandas as pd
-import numpy as np
-import pandas as pd
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -8,7 +5,7 @@ from ucimlrepo import fetch_ucirepo
 
 ref = ["No", "Yes"]
 
-# fetch dataset
+# fetch dataset https://archive.ics.uci.edu/dataset/94/spambase
 spambase = fetch_ucirepo(id=94)
 
 # data (as pandas dataframes)
@@ -37,6 +34,22 @@ for index in range(len(x_test)):
 
     print("Predicted: " + ref[y_pred] + "; Actual: " + ref[actual])
     print("")
+
+#Test Custom Data Prediction
+custom_data = [[
+    1,1,1,1,1,1,1,1,1,1,
+    1,1,1,1,1,1,1,1,1,1,
+    1,1,1,1,1,1,1,1,1,1,
+    1,1,1,1,1,1,1,1,1,1,
+    1,1,1,1,1,1,1,1,1,1,
+    1,1,1,1,1,1,
+    1
+]]
+custom_scaler = StandardScaler().fit(custom_data)
+custom_data = custom_scaler.transform(custom_data)
+custom_prediction = model.predict(custom_data.reshape(-1, 57))[0]
+print("Custom Data Prediction:")
+print("No" if not custom_prediction else "Yes")
 
 print("*************")
 print("Accuracy:", model.score(x_test, y_test))
